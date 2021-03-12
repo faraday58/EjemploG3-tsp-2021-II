@@ -1,7 +1,9 @@
 package mx.unam.ingenieria.ejemplog3_tsp_2021_ii;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnUno;
     private Button btnDos;
     private String display="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +25,23 @@ public class MainActivity extends AppCompatActivity {
         btnUno= findViewById(R.id.btnUno);
         btnDos= findViewById(R.id.btnDos);
         Toast.makeText(MainActivity.this,"onCreate()",Toast.LENGTH_SHORT).show();
+
+        if(savedInstanceState != null)
+        {
+            display= savedInstanceState.getString("mDisplay");
+            txtvDisplay.setText(display);
+
+        }
+
+/*
+        if(savedInstanceState != null)
+        {
+            display= savedInstanceState.getString("mDisplay");
+            txtvDisplay.setText(display);
+        }
+*/
     }
+
 
     public void onClick(View view)
     {
@@ -42,40 +61,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Toast.makeText(MainActivity.this, "onStart()",Toast.LENGTH_SHORT ).show();
-
+    public void onClickProgramador(View view)
+    {
+        Intent intentProgramador = new Intent(MainActivity.this,ProgramadorActivity.class);
+        intentProgramador.putExtra("mDisplay",display);
+        startActivity(intentProgramador);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Toast.makeText(MainActivity.this, "onResume()",Toast.LENGTH_SHORT ).show();
-    }
+
+
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        Toast.makeText(MainActivity.this, "onPause()",Toast.LENGTH_SHORT ).show();
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("mDisplay",display);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(MainActivity.this, "onStop()",Toast.LENGTH_SHORT ).show();
-    }
 
+    /*
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Toast.makeText(MainActivity.this, "onDestroy()",Toast.LENGTH_SHORT ).show();
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("mDisplay",display);
     }
+*/
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Toast.makeText(MainActivity.this, "onRestart()",Toast.LENGTH_SHORT ).show();
-    }
 }

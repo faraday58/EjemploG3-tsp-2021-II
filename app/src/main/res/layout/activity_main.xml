@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/txtvDisplay"
         android:layout_width="0dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:gravity="right"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,10 +28,10 @@
         android:text="@string/strBtnUno"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintHorizontal_bias="0.306"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtvDisplay"
-        app:layout_constraintVertical_bias="0.492" />
+        app:layout_constraintVertical_bias="0.438" />
 
     <Button
         android:id="@+id/btnDos"
@@ -42,9 +42,23 @@
         android:text="@string/strBtnDos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toEndOf="@+id/btnUno"
         app:layout_constraintTop_toBottomOf="@+id/txtvDisplay"
         app:layout_constraintVertical_bias="0.542" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:onClick="onClickProgramador"
+        android:text="Programador"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUno"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
